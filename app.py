@@ -3,8 +3,9 @@ import pymongo
 import pandas as pd
 from datetime import datetime
 
+
 # Connect to MongoDB
-client = pymongo.MongoClient("mongodb://localhost:27017/")
+client = pymongo.MongoClient("mongodb+srv://gulafshan302003:1nfAp8AygOIH1RCS@cluster0.8cvfvhg.mongodb.net/?retryWrites=true&w=majority")
 db = client["supermarket"]
 products_collection = db["products"]
 inventory_collection = db["inventory"]
