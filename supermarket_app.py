@@ -178,10 +178,6 @@ def main():
         else:
             st.info("No revenues found!")
 
-import random
-from faker import Faker
-
-fake = Faker()
 
 # Generate random products
 def generate_products(num_products):
