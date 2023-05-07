@@ -86,7 +86,7 @@ def get_revenues():
 
 # Streamlit application
 def main():
-    st.title("Supermarket Management Application")
+    st.title("Supermarket Management Application 🛒")
 
     # Sidebar Navigation
     st.sidebar.title("Navigation")
