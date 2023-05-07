@@ -240,30 +240,6 @@ def generate_revenues(num_revenues):
         revenues.append(revenue)
     return revenues
 
-# Add generated data to collections
-def add_generated_data():
-    # Generate and add products
-    products = generate_products(10)
-    for product in products:
-        products_collection.insert_one(product)
-
-    # Generate and add staff
-    staff = generate_staff(5)
-    for staff_member in staff:
-        staff_collection.insert_one(staff_member)
-
-    # Generate and add departments
-    departments = generate_departments(4)
-    for department in departments:
-        departments_collection.insert_one(department)
-
-    # Generate and add revenues
-    revenues = generate_revenues(10)
-    for revenue in revenues:
-        revenues_collection.insert_one(revenue)
-
-# Uncomment the line below to add generated data
-add_generated_data()
 
 
 
