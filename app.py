@@ -84,6 +84,32 @@ def add_revenue(amount):
 def get_revenues():
     revenues = list(revenues_collection.find())
     return revenues
+def add_to_cart(product_id, quantity):
+    product = products_collection.find_one({"_id": product_id})
+    if product:
+        cart_item = {
+            "product_id": product_id,
+            "product_name": product["name"],
+            "quantity": quantity,
+            "price": product["price"]
+        }
+        cart_collection = db["cart"]
+        cart_collection.insert_one(cart_item)
+
+def get_cart():
+    cart_collection = db["cart"]
+    cart_items = list(cart_collection.find())
+    return cart_items
+
+def delete_cart_item(cart_item_id):
+    cart_collection = db["cart"]
+    cart_item = cart_collection.find_one({"_id": cart_item_id})
+    if cart_item:
+        confirmation = st.warning(f"Are you sure you want to delete {cart_item['product_name']} from cart? This action cannot be undone.")
+        if confirmation.button("Delete"):
+            cart_collection.delete_one({"_id": cart_item_id})
+            st.success("Cart item deleted successfully!")
+
 
 # Streamlit application
 def main():
@@ -92,7 +118,7 @@ def main():
     # Sidebar Navigation
     st.sidebar.title("Navigation")
     page_options = ["Add Product", "View Products", "Place Order", "Add Staff", "View Staff", "Add Department",
-                    "View Departments", "Add Revenue", "View Revenues"]
+                    "View Departments", "Add Revenue", "View Revenues", "View Cart"]
     selected_page = st.sidebar.radio("", options=page_options)
 
     if selected_page == "Add Product":
