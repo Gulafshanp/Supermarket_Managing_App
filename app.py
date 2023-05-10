@@ -158,7 +158,7 @@ def main():
             cart_items = get_cart()
             if len(cart_items) > 0:
                 df = pd.DataFrame(cart_items)
-                st.dataframe(df)
+                st.table(df)
             else:
                 st.info("Your cart is empty.")
         elif st.button("Checkout"):
@@ -221,7 +221,7 @@ def main():
         cart_items = get_cart()
         if len(cart_items) > 0:
             df = pd.DataFrame(cart_items)
-            st.dataframe(df)
+            st.table(df)
         else:
             st.info("Your cart is empty.")
 
