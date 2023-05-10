@@ -142,17 +142,8 @@ def main():
         delete_product_id = st.selectbox("Select Product to Delete", options=[product["_id"] for product in products])
         if st.button("Delete"):
             delete_product(delete_product_id)
-
-    """elif selected_page == "Place Order":
-        st.header("Place Order")
-        products = get_products()
-        product_options = {product["name"]: product["_id"] for product in products}
-        selected_product = st.selectbox("Select Product", list(product_options.keys()))
-        order_quantity = st.number_input("Order Quantity", min_value=1)
-        if st.button("Place Order"):
-            product_id = product_options[selected_product]
-            add_order(product_id, order_quantity)
-            st.success("Order placed successfully!")"""
+        
+    
        elif selected_page == "Place Order":
             st.header("Place Order")
             products = get_products()
