@@ -216,7 +216,14 @@ def main():
             st.dataframe(df)
         else:
             st.info("No revenues found!")
-
+   
+    elif selected_page == "View Cart":
+        cart_items = get_cart()
+        if len(cart_items) > 0:
+            df = pd.DataFrame(cart_items)
+            st.dataframe(df)
+        else:
+            st.info("Your cart is empty.")
 
 # Generate random products
 def generate_products(num_products):
