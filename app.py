@@ -153,25 +153,25 @@ def main():
             product_id = product_options[selected_product]
             add_order(product_id, order_quantity)
             st.success("Order placed successfully!")"""
-    elif selected_page == "Place Order":
-        st.header("Place Order")
-        products = get_products()
-        product_options = {product["name"]: product["_id"] for product in products}
-        selected_product = st.selectbox("Select Product", list(product_options.keys()))
-        order_quantity = st.number_input("Order Quantity", min_value=1)
-        if st.button("Add to Cart"):
-            product_id = product_options[selected_product]
-            add_to_cart(product_id, order_quantity)
-            st.success("Product added to cart!")
-        if st.button("View Cart"):
-            cart_items = get_cart()
-            if len(cart_items) > 0:
-                df = pd.DataFrame(cart_items)
-                st.dataframe(df)
-            else:
-                st.info("Your cart is empty.")
-        if st.button("Checkout"):
-            st.success("Checkout not yet implemented.")
+        elif selected_page == "Place Order":
+            st.header("Place Order")
+            products = get_products()
+            product_options = {product["name"]: product["_id"] for product in products}
+            selected_product = st.selectbox("Select Product", list(product_options.keys()))
+            order_quantity = st.number_input("Order Quantity", min_value=1)
+            if st.button("Add to Cart"):
+                product_id = product_options[selected_product]
+                add_to_cart(product_id, order_quantity)
+                st.success("Product added to cart!")
+            if st.button("View Cart"):
+                cart_items = get_cart()
+                if len(cart_items) > 0:
+                    df = pd.DataFrame(cart_items)
+                    st.dataframe(df)
+                else:
+                    st.info("Your cart is empty.")
+            if st.button("Checkout"):
+                st.success("Checkout not yet implemented.")
 
 
     elif selected_page == "Add Staff":
