@@ -153,7 +153,7 @@ def main():
             product_id = product_options[selected_product]
             add_order(product_id, order_quantity)
             st.success("Order placed successfully!")"""
-        elif selected_page == "Place Order":
+       elif selected_page == "Place Order":
             st.header("Place Order")
             products = get_products()
             product_options = {product["name"]: product["_id"] for product in products}
